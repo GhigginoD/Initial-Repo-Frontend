@@ -1,0 +1,17 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins";
+
+.card {
+  min-width: 300px;
+  min-height: 200px !important;
+  background: $amarelo_claro !important;
+  box-shadow: 10px 5px 5px #eaeaea;
+
+  @include for-tablet-portrait-up {
+    min-width: 100% !important;
+  }
+  @include for-phone-only {
+    min-width: 100% !important;
+    flex-flow: column !important;
+  }
+}

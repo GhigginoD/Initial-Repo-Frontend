@@ -1,4 +1,4 @@
-import { Footer } from "antd/es/layout/layout";
+import { Footer } from "../Layout/LayoutComponent";
 import style from "./style.module.scss";
 
 export const FooterComponent = () => {

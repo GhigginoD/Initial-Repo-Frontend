@@ -1,6 +1,12 @@
-import { Header } from "antd/es/layout/layout";
+import { Header } from "../Layout/LayoutComponent";
 import style from "./style.module.scss";
 
 export const HeaderComponent = () => {
-  return <Header className={style.headerStyle}></Header>;
+  return (
+    <Header className={style.headerStyle} title="as">
+      <span className={style.textHeader}>
+        Sistema Admin - Agenda Institucional
+      </span>
+    </Header>
+  );
 };

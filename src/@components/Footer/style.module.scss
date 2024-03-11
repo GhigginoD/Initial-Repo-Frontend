@@ -1,5 +1,8 @@
+@import "../../styles/variables.scss";
+
 .footerStyle {
   text-align: center;
   color: black;
-  background-color: #fff !important;
+  padding-top: 3rem;
+  background: $azul_escuro !important;
 }

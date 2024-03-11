@@ -1,10 +1,10 @@
 import { LayoutComponent } from "@/@components/Layout/LayoutComponent";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { Roboto } from "next/font/google";
+import "../styles/globals.scss";
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({ weight: "500", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Gerenciar: Agenda do Comércio",
@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={inter.className}>
+      <body className={roboto.className}>
         <AntdRegistry>
           <LayoutComponent>{children}</LayoutComponent>
         </AntdRegistry>

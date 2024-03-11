@@ -1,5 +1,15 @@
 .layoutStyle {
   overflow: hidden;
-  width: calc(100% - 8px);
-  max-width: calc(100% - 8px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.contentStyle {
+  display: flex;
+  max-width: 80% !important;
 }
