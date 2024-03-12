@@ -1,0 +1,95 @@
+@import "../../styles/mixins";
+@import "../../styles/variables.scss";
+
+@mixin btn {
+  padding: 0 15px;
+  height: 35px;
+  font-size: 12px !important;
+  border-radius: 6px;
+  font-weight: 600;
+  width: 100%;
+  margin-bottom: 8px;
+
+  @include for-phone-only {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  &:nth-last-child(even) {
+    margin-right: 10px;
+  }
+}
+
+.btn {
+  &__primary {
+    @include btn();
+    background: $blue_dark;
+    border: 1px solid $blue_dark;
+    color: $white;
+
+    &:hover {
+      background: $blue_light;
+      border: 1px solid $blue_light;
+      color: $white;
+    }
+
+    &:focus {
+      background: $blue_light;
+      border: 1px solid $blue_light;
+      color: $white;
+    }
+  }
+
+  &__default {
+    @include btn();
+    background: $green !important;
+    border: 1px solid $green !important;
+    color: $white !important;
+
+    &:hover {
+      background: $green_dark;
+      border: 1px solid $green_dark;
+      color: $white;
+    }
+  }
+
+  &__ghost {
+    @include btn();
+    border: 1px #acacac solid;
+    color: #acacac;
+
+    &:hover {
+      border: 1px #acacac solid;
+      color: #acacac;
+    }
+
+    &:focus {
+      border: 1px #2c2c2c solid;
+      color: #2c2c2c;
+    }
+  }
+
+  &__text {
+    color: $blue_dark;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background-color: transparent;
+      color: $blue_light;
+    }
+  }
+
+  &__link {
+    @include btn();
+    background: $gray_light;
+    border: 1px solid $gray_light;
+    color: #2c2c2c;
+
+    &:hover {
+      background-color: #d3d3d3;
+      color: #2c2c2c;
+    }
+  }
+}

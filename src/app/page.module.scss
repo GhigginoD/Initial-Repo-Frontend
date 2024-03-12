@@ -7,3 +7,22 @@
   border: 1px solid;
   border-radius: 0.2cm;
 }
+.contentCard {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  .icons {
+    color: #242755;
+    font-size: 2rem;
+  }
+
+  .textCard {
+    font-size: x-large;
+    @include for-phone-only {
+      font-size: larger;
+    }
+  }
+}

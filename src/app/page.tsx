@@ -1,27 +1,16 @@
-import { CardBaseComponent } from "@/@components/CardBase/CardBaseComponent";
-import { Divider, Row } from "antd";
-import style from "./page.module.scss";
+"use client";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
-export default function Home() {
-  return (
-    <>
-      <Divider orientation="left">Gerenciar</Divider>
-      <Row
-        justify={"start"}
-        gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
-        style={{ gap: "2rem" }}
-      >
-        <CardBaseComponent>
-          <span> Content</span>
-        </CardBaseComponent>
+const Home = () => {
+  const router = useRouter();
+  const { replace } = router;
 
-        <CardBaseComponent>
-          <span> Content</span>
-        </CardBaseComponent>
-      </Row>
+  useEffect(() => {
+    replace("/tema");
+  }, [replace]);
 
-      <Divider orientation="left">Dados Gerais</Divider>
-      <div className={style.dadosGerais}></div>
-    </>
-  );
-}
+  return <></>;
+};
+
+export default Home;

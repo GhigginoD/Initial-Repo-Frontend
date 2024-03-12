@@ -6,12 +6,17 @@
   min-height: 200px !important;
   background: $amarelo_claro !important;
   box-shadow: 10px 5px 5px #eaeaea;
+  height: 100%;
+  display: flex;
 
   @include for-tablet-portrait-up {
     min-width: 100% !important;
   }
   @include for-phone-only {
     min-width: 100% !important;
-    flex-flow: column !important;
   }
+}
+
+.card:hover {
+  cursor: pointer;
 }
