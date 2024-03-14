@@ -1,5 +1,5 @@
 import { AutoComplete, Form, Input, Select, Switch } from "antd";
-import { FC } from "react";
+import { CSSProperties, FC } from "react";
 
 import TextArea from "antd/lib/input/TextArea";
 import styles from "./style.module.scss";
@@ -17,6 +17,7 @@ type InputDTO = {
   tooltip?: string;
   onChange?: any;
   type?: string;
+  style?: CSSProperties;
 };
 
 type Option = {
@@ -74,6 +75,7 @@ export const InputText: FC<InputDTO> = ({
   tooltip,
   onChange,
   type,
+  style,
 }) => {
   return (
     <Form.Item
@@ -83,6 +85,7 @@ export const InputText: FC<InputDTO> = ({
       rules={rules}
       initialValue={defaultValue}
       tooltip={tooltip}
+      style={style}
     >
       <Input
         className={styles.input}
@@ -178,14 +181,9 @@ export const InputTextArea: FC<any> = ({
       name={name}
       label={label}
       rules={rules}
+      initialValue={defaultValue}
     >
-      <TextArea
-        rows={8}
-        showCount
-        maxLength={200}
-        onChange={onChange}
-        defaultValue={defaultValue}
-      />
+      <TextArea rows={8} showCount maxLength={500} onChange={onChange} />
     </Form.Item>
   );
 };

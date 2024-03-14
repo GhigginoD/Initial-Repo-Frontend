@@ -4,7 +4,7 @@ import style from "./style.module.scss";
 
 type CardBaseType = {
   children: ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
 };
 
 export const CardBaseComponent = ({ onClick, children }: CardBaseType) => {

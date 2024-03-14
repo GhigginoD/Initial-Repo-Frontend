@@ -1,7 +1,7 @@
 import { SearchOutlined } from "@ant-design/icons";
 
 type SearchIconType = {
-  className: string;
+  className?: string;
 };
 
 export const SearchIcon = ({ className }: SearchIconType) => {

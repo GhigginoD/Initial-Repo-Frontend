@@ -9,8 +9,8 @@ import style from "../page.module.scss";
 export default function Assuntos() {
   const { push } = useRouter();
 
-  function handlerRedirect() {
-    push("assuntos/novo");
+  function handlerRedirect(route: string) {
+    push(route);
   }
   return (
     <>
@@ -20,14 +20,16 @@ export default function Assuntos() {
         gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
         style={{ gap: "2rem" }}
       >
-        <CardBaseComponent onClick={handlerRedirect}>
+        <CardBaseComponent onClick={() => handlerRedirect("assuntos/novo")}>
           <div className={style.contentCard}>
             <PlusCircleIcon className={style.icons} />
             <span className={style.textCard}> Cadastrar Novos Assuntos</span>
           </div>
         </CardBaseComponent>
 
-        <CardBaseComponent onClick={() => alert("visualizar assuntos")}>
+        <CardBaseComponent
+          onClick={() => handlerRedirect("assuntos/visualizar")}
+        >
           <div className={style.contentCard}>
             <SearchIcon className={style.icons} />
             <span className={style.textCard}> Visualizar Assuntos</span>

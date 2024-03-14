@@ -7,7 +7,7 @@
   font-size: 12px !important;
   border-radius: 6px;
   font-weight: 600;
-  width: 100%;
+  width: 200px;
   margin-bottom: 8px;
 
   @include for-phone-only {
@@ -38,6 +38,9 @@
       border: 1px solid $blue_light;
       color: $white;
     }
+    span {
+      color: $white;
+    }
   }
 
   &__default {
@@ -45,6 +48,10 @@
     background: $green !important;
     border: 1px solid $green !important;
     color: $white !important;
+
+    span {
+      color: white;
+    }
 
     &:hover {
       background: $green_dark;

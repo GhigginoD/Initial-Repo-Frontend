@@ -12,12 +12,12 @@ export const LayoutComponent = ({ children }: any) => {
   return (
     <Layout className={style.layoutStyle}>
       <HeaderComponent />
-      <Layout>
+      <div style={{ display: "flex", flexDirection: "row" }}>
         <Sidebar />
         <div className={style.container}>
           <ContentComponent>{children}</ContentComponent>
         </div>
-      </Layout>
+      </div>
       <FooterComponent />
     </Layout>
   );

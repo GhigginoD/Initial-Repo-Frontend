@@ -1,5 +1,5 @@
 import { Button } from "antd";
-import React, { FC } from "react";
+import React, { CSSProperties, FC } from "react";
 
 import { ButtonShape } from "antd/lib/button";
 import styles from "./style.module.scss";
@@ -11,8 +11,9 @@ export type BtnDTO = {
   link?: string;
   onClick?: (e: any) => void;
   disabled?: boolean;
-  icon?: string;
+  icon?: any;
   shape?: ButtonShape;
+  style?: CSSProperties;
 };
 
 export const ButtonComponent: FC<BtnDTO> = ({
@@ -24,6 +25,7 @@ export const ButtonComponent: FC<BtnDTO> = ({
   disabled,
   icon,
   shape,
+  style,
 }) => {
   let className = "";
   switch (type) {
@@ -43,10 +45,12 @@ export const ButtonComponent: FC<BtnDTO> = ({
       className = styles.btn__dashed;
       break;
   }
+
   return (
     <Button
       className={className}
-      icon={icon ? <i className={`fa-solid ${icon} mr-4`}></i> : null}
+      icon={icon}
+      style={style}
       htmlType="submit"
       type={type}
       loading={loading}
