@@ -5,4 +5,9 @@ export type TemaType = {
   descricao: string;
 };
 
-export type AssuntoType = {};
+export type AssuntoType = {
+  categoria: string;
+  nome: string;
+  descricao: string;
+  posicionamento: string;
+};
