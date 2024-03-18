@@ -6,8 +6,10 @@ export type TemaType = {
 };
 
 export type AssuntoType = {
-  categoria: string;
+  id: string;
   nome: string;
-  descricao: string;
+  slug: string;
   posicionamento: string;
+  descricao: string;
+  Category: { name: string; id: string };
 };

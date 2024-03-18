@@ -1,0 +1,47 @@
+@import "../../../styles/mixins";
+@import "../../../styles/variables.scss";
+
+.containerForm {
+  box-shadow: 0px 0px 5px 2px rgba(227, 227, 227, 1);
+  padding: 1rem;
+  margin-top: 1rem;
+  background: $white;
+}
+
+.gridContainerCards {
+  display: grid;
+  gap: 1rem;
+
+  @include for-phone-only {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+  @include for-tablet-landscape-up {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include not-tablet-landscape-up {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include for-big-desktop-up {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.iconPencil {
+  color: $azul_escuro;
+  padding: 0.4rem;
+  border: 1px solid;
+  border-radius: 1cm;
+  width: fit-content;
+}
+
+.iconPencil:hover {
+  background: $azul_escuro;
+  color: $white;
+  transition: 500ms;
+}
+.contentCard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}

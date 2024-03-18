@@ -1,6 +1,7 @@
+import { fetchAllTemas } from "@/services/tema";
 import { AssuntoType } from "@/type";
 import { Form } from "antd";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { ButtonComponent } from "../Button/ButtonComponent";
 import { DropList, InputText, InputTextArea } from "../Inputs";
 
@@ -13,11 +14,33 @@ export const AssuntoFormComponent = ({
   onSubmit,
   assunto,
 }: AssuntoFormType) => {
-  const data = [{ value: "1", title: "cultura" }];
-
+  const [temaOptions, setTemaOptions] = useState([]);
   const [form] = Form.useForm();
+
+  async function fetchTemas() {
+    try {
+      const temas = await fetchAllTemas();
+
+      setTemaOptions(
+        temas.map((tema: any) => {
+          return { value: tema.id, title: tema.name };
+        })
+      );
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
+
   useEffect(() => {
-    form.setFieldValue("categoria", assunto?.categoria);
+    fetchTemas();
+  }, []);
+
+  useEffect(() => {
+    console.log(assunto);
+    form.setFieldValue("categoria", {
+      value: assunto?.Category.id,
+      title: assunto?.Category.name,
+    });
     form.setFieldValue("nome", assunto?.nome);
     form.setFieldValue("descricao", assunto?.descricao);
     form.setFieldValue("posicionamento", assunto?.posicionamento);
@@ -34,7 +57,7 @@ export const AssuntoFormComponent = ({
       <DropList
         label="Categoria"
         name="categoria"
-        options={data}
+        options={temaOptions}
         rules={[{ required: true, message: "Campo Obrigatório" }]}
       />
 
@@ -43,6 +66,7 @@ export const AssuntoFormComponent = ({
         name="nome"
         rules={[{ required: true, message: "Campo Obrigatório" }]}
       />
+
       <InputTextArea
         label="Descricao"
         name="descricao"

@@ -35,7 +35,7 @@ export default function Temas() {
         </CardBaseComponent>
       </Row>
 
-      <Divider orientation="left">DashBoard Temas</Divider>
+      <Divider orientation="left"></Divider>
       <div className={style.dadosGerais}></div>
     </>
   );

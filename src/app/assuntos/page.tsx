@@ -37,7 +37,7 @@ export default function Assuntos() {
         </CardBaseComponent>
       </Row>
 
-      <Divider orientation="left">DashBoard Assuntos</Divider>
+      <Divider orientation="left"></Divider>
       <div className={style.dadosGerais}></div>
     </>
   );
