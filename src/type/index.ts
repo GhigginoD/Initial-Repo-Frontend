@@ -1,7 +1,7 @@
 export type TemaType = {
   id?: string;
   nome: string;
-  slug: string;
+  slug?: string;
   descricao: string;
 };
 

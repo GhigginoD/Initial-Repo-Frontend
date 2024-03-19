@@ -1,17 +1,33 @@
 "use client";
 import { TemaFormComponent } from "@/@components/Form/TemaFormComponent";
+import MessageComponent from "@/@components/Message/MessageComponent";
+import { createTheme } from "@/services/tema";
 import { Divider, FormProps, Row } from "antd";
 import style from "./style.module.scss";
 
 type FieldType = {
   id?: string;
-  nome?: string;
-  descricao?: string;
+  name?: string;
+  descripion?: string;
 };
 
 export default function NovosTemas() {
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
-    console.log("Success:", values);
+    createTheme(values)
+      .then(() => {
+        MessageComponent({
+          type: "success",
+          title: "Tema criado com sucesso",
+          description: "Esta é uma mensagem de sucesso.",
+        });
+      })
+      .catch(() => {
+        MessageComponent({
+          type: "error",
+          title: "Tema não criado",
+          description: "Esta é uma mensagem de error.",
+        });
+      });
   };
 
   return (

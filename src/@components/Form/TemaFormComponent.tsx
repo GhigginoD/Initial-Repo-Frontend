@@ -12,9 +12,8 @@ type TemaFormType = {
 export const TemaFormComponent = ({ onSubmit, tema }: TemaFormType) => {
   const [form] = Form.useForm();
   useEffect(() => {
-    form.setFieldValue("slug", tema?.slug);
-    form.setFieldValue("nome", tema?.nome);
-    form.setFieldValue("descricao", tema?.descricao);
+    form.setFieldValue("name", tema?.nome);
+    form.setFieldValue("description", tema?.descricao);
   }, [tema]);
 
   return (
@@ -26,19 +25,13 @@ export const TemaFormComponent = ({ onSubmit, tema }: TemaFormType) => {
       onFinish={onSubmit}
     >
       <InputText
-        label="slug"
-        name="slug"
-        disabled={true}
-        style={{ display: "none" }}
-      />
-      <InputText
         label="Nome"
-        name="nome"
+        name="name"
         rules={[{ required: true, message: "Campo Obrigatório" }]}
       />
       <InputTextArea
         label="Descricao"
-        name="descricao"
+        name="description"
         rules={[{ required: true, message: "Campo Obrigatório" }]}
       />
       <ButtonComponent type="default" title="Salvar" />

@@ -1,7 +1,8 @@
 "use client";
 
 import { TemaFormComponent } from "@/@components/Form/TemaFormComponent";
-import { fetchThemeBySlug } from "@/services/tema";
+import MessageComponent from "@/@components/Message/MessageComponent";
+import { editTheme, fetchThemeBySlug } from "@/services/tema";
 import { TemaType } from "@/type";
 import { Divider, Row } from "antd";
 import { useParams } from "next/navigation";
@@ -13,7 +14,21 @@ export default function EditTema() {
   const { slug } = useParams();
 
   function onSubmit(values: any) {
-    console.log("ok", values);
+    editTheme(String(tema?.id), values)
+      .then(() => {
+        MessageComponent({
+          type: "success",
+          title: "Tema editado com sucesso!",
+          description: "Esta é uma mensagem de sucesso.",
+        });
+      })
+      .catch(() => {
+        MessageComponent({
+          type: "error",
+          title: "Tema não editado!",
+          description: "Esta é uma mensagem de error.",
+        });
+      });
   }
 
   async function fetchAllTemas(slugName: string | string[]) {
