@@ -17,3 +17,24 @@ export async function fetchAssuntoBySlug(slug: string | string[]) {
     throw new Error(`Erro ao carregar dados. Status: ${response.status}`);
   return await response.json();
 }
+export async function createSubject(body: any) {
+  const response = await fetch(`${url}/subjects`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!response.ok)
+    throw new Error(`Erro ao carregar dados. Status: ${response.status}`);
+  return await response.json();
+}
+
+export async function editSubject(id: string, body: any) {
+  const response = await fetch(`${url}/subjects/${id}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!response.ok)
+    throw new Error(`Erro ao carregar dados. Status: ${response.status}`);
+  return await response.json();
+}

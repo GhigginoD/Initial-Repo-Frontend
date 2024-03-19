@@ -1,7 +1,8 @@
 "use client";
 
 import { AssuntoFormComponent } from "@/@components/Form/AssuntoFormcomponent";
-import { fetchAssuntoBySlug } from "@/services/assunto";
+import MessageComponent from "@/@components/Message/MessageComponent";
+import { editSubject, fetchAssuntoBySlug } from "@/services/assunto";
 import { AssuntoType } from "@/type";
 import { Divider, Row } from "antd";
 import { useParams } from "next/navigation";
@@ -14,6 +15,27 @@ export default function EditTema() {
 
   function onSubmit(values: any) {
     console.log("ok", values);
+    const data = {
+      categoryId: values.categoria.value || values.categoria,
+      description: values.descricao,
+      posicionamento: values.posicionamento,
+      name: values.nome,
+    };
+    editSubject(String(assunto?.id), data)
+      .then(() => {
+        MessageComponent({
+          type: "success",
+          title: "Tema editado com sucesso!",
+          description: "Esta é uma mensagem de sucesso.",
+        });
+      })
+      .catch(() => {
+        MessageComponent({
+          type: "error",
+          title: "Tema não editado!",
+          description: "Esta é uma mensagem de error.",
+        });
+      });
   }
 
   async function fetchAllTemas(slugName: string | string[]) {
@@ -34,7 +56,7 @@ export default function EditTema() {
 
   return (
     <div className={style.containerForm}>
-      <Divider orientation="center">Cadastro de Temas</Divider>
+      <Divider orientation="center">Edição de Temas</Divider>
 
       <Row gutter={[16, 16]} justify={"center"}>
         <AssuntoFormComponent onSubmit={onSubmit} assunto={assunto} />

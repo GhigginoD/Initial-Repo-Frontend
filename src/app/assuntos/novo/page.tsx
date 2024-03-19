@@ -1,6 +1,8 @@
 "use client";
 
 import { AssuntoFormComponent } from "@/@components/Form/AssuntoFormcomponent";
+import MessageComponent from "@/@components/Message/MessageComponent";
+import { createSubject } from "@/services/assunto";
 import { Divider, FormProps, Row } from "antd";
 import style from "./style.module.scss";
 type FieldType = {
@@ -12,7 +14,28 @@ type FieldType = {
 
 export default function NovosAssuntos() {
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
-    console.log("Success:", values);
+    console.log(values);
+    const data = {
+      categoryId: values.categoria,
+      description: values.descricao,
+      name: values.nome,
+      posicionamento: values.posicionamento,
+    };
+    createSubject(data)
+      .then(() => {
+        MessageComponent({
+          type: "success",
+          title: "Tema criado com sucesso",
+          description: "Esta é uma mensagem de sucesso.",
+        });
+      })
+      .catch(() => {
+        MessageComponent({
+          type: "error",
+          title: "Tema não criado",
+          description: "Esta é uma mensagem de error.",
+        });
+      });
   };
 
   return (

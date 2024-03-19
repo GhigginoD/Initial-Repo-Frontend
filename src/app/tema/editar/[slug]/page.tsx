@@ -47,7 +47,7 @@ export default function EditTema() {
 
   return (
     <div className={style.containerForm}>
-      <Divider orientation="center">Cadastro de Temas</Divider>
+      <Divider orientation="center">Edição de Temas</Divider>
 
       <Row gutter={[16, 16]} justify={"center"}>
         <TemaFormComponent onSubmit={onSubmit} tema={tema} />

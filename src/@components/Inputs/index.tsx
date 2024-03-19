@@ -183,7 +183,7 @@ export const InputTextArea: FC<any> = ({
       rules={rules}
       initialValue={defaultValue}
     >
-      <TextArea rows={8} showCount maxLength={500} onChange={onChange} />
+      <TextArea rows={8} showCount onChange={onChange} />
     </Form.Item>
   );
 };
