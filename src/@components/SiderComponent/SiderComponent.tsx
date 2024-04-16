@@ -63,16 +63,10 @@ const SiderComponent = () => {
         items={[
           {
             key: "1",
-            label: "Temas",
+            label: "Item-1",
             icon: <AlertOutlined />,
             onClick: () => HandlerRedirect("/"),
-          },
-          {
-            key: "2",
-            label: "Assuntos",
-            icon: <AlipayCircleOutlined />,
-            onClick: () => HandlerRedirect("/assuntos"),
-          },
+          }
         ]}
       />
     </Sider>
